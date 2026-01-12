@@ -6,7 +6,7 @@
 
 **LLM GENERADOR DE CONTENIDO**
 
-[Repositorio](https://github.com/Bootcamp-IA-P5/Equipo_2_Proyecto_XI_LLMs_GENERADOR-DE-CONTENIDO) • [Gestión](https://github.com/orgs/Bootcamp-IA-P5/projects/21/views/1) 
+[Repositorio](https://github.com/Bootcamp-IA-P5/Equipo_2_Proyecto_XI_LLMs_GENERADOR-DE-CONTENIDO) • [Gestión](https://github.com/orgs/Bootcamp-IA-P5/projects/29/views/1) 
 
 </div>
 
