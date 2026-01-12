@@ -68,11 +68,11 @@ class ImageService:
             "blog": (1200, 630)
         }
         
-        width, height = sizes. get(platform, (1200, 630))
-        safe_text = urllib. parse.quote(topic[:30])
+        width, height = sizes.get(platform, (1200, 630))
+        safe_text = urllib.parse.quote(topic[:30])
         return f"https://placehold.co/{width}x{height}/4A90A4/ffffff?text={safe_text}"
     
     @classmethod
     def get_themed_image(cls, topic: str, platform:  str) -> str:
         """Alias para compatibilidad"""
-        return cls. get_platform_image(topic, platform)
+        return cls.get_platform_image(topic, platform)
