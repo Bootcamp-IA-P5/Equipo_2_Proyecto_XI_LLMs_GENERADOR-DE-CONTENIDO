@@ -27,14 +27,14 @@ class LLMService:
         if self.provider == "groq":  
             return ChatGroq(
                 model=settings.DEFAULT_GROQ_MODEL,
-                api_key=settings. GROQ_API_KEY,
+                api_key=settings.GROQ_API_KEY,
                 temperature=0.7,
                 max_tokens=4096
             )
         elif self.provider == "ollama":  
             return Ollama(
                 model=settings.DEFAULT_OLLAMA_MODEL,
-                base_url=settings. OLLAMA_BASE_URL,
+                base_url=settings.OLLAMA_BASE_URL,
                 temperature=0.7
             )
         else:

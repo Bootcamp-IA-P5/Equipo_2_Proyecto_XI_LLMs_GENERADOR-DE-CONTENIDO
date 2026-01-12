@@ -10,7 +10,7 @@ settings = get_settings()
 
 app = FastAPI(
     title=settings.API_TITLE,
-    version=settings. API_VERSION,
+    version=settings.API_VERSION,
     description="API para generación de contenido con IA para diferentes plataformas",
     docs_url="/docs",
     redoc_url="/redoc"

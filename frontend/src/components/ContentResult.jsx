@@ -32,7 +32,7 @@ const ContentResult = ({ result, onClear }) => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-3">
           <div className={`p-2 rounded-lg ${config.bg}`}>
-            <Icon className={`h-5 w-5 ${config. color}`} />
+            <Icon className={`h-5 w-5 ${config.color}`} />
           </div>
           <div>
             <h3 className="font-semibold text-gray-900">Contenido Generado</h3>
@@ -67,7 +67,7 @@ const ContentResult = ({ result, onClear }) => {
       {/* Content */}
       <div className={`${config.bg} rounded-lg p-4 border border-gray-200`}>
         <div className="prose prose-sm max-w-none whitespace-pre-wrap text-gray-800">
-          {result. content}
+          {result.content}
         </div>
       </div>
 
