@@ -17,7 +17,7 @@ const platformColors = {
 const PlatformSelector = ({ platforms, selected, onChange }) => {
   return (
     <div className="grid grid-cols-2 md: grid-cols-4 gap-3">
-      {platforms?. map((platform) => {
+      {platforms?.map((platform) => {
         const Icon = platformIcons[platform.id] || FiFileText;
         const isSelected = selected === platform.id;
         const colors = platformColors[platform.id] || 'bg-gray-100 text-gray-600';

@@ -21,10 +21,10 @@ export const useContentGenerator = () => {
   useEffect(() => {
     const loadConfig = async () => {
       try {
-        const data = await contentService. getConfig();
+        const data = await contentService.getConfig();
         setConfig(data);
       } catch (err) {
-        console. error('Error loading config:', err);
+        console.error('Error loading config:', err);
         toast.error('Error al cargar la configuración');
       } finally {
         setConfigLoading(false);
@@ -53,7 +53,7 @@ export const useContentGenerator = () => {
       toast.success('¡Contenido generado exitosamente! ');
       return data;
     } catch (err) {
-      const errorMessage = err. response?.data?.detail || 'Error al generar contenido';
+      const errorMessage = err.response?.data?.detail || 'Error al generar contenido';
       setError(errorMessage);
       toast.error(errorMessage);
       throw err;

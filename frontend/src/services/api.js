@@ -22,8 +22,8 @@ export const contentService = {
    * Obtiene la configuración disponible
    */
   getConfig: async () => {
-    const response = await api. get('/content/config');
-    return response. data;
+    const response = await api.get('/content/config');
+    return response.data;
   },
 
   /**
