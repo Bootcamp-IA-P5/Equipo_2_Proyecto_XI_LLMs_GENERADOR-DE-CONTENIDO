@@ -175,7 +175,7 @@ const ContentForm = ({ config, onSubmit, loading }) => {
       </div>
 
       {/* Tip */}
-      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-4">
+      <div className="bg-linear-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-4">
         <div className="flex gap-3">
           <span className="text-2xl">💡</span>
           <div>
@@ -191,7 +191,7 @@ const ContentForm = ({ config, onSubmit, loading }) => {
       <button
         type="submit"
         disabled={loading || !formData.topic.trim()}
-        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-4 px-6 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+        className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold py-4 px-6 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
         aria-disabled={loading || !formData.topic.trim()}
       >
         {loading ? (

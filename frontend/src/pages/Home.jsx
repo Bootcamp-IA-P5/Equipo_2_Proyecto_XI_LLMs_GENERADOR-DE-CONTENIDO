@@ -89,7 +89,7 @@ const Home = () => {
             ) : (
               <div className="bg-white rounded-2xl shadow-lg border border-purple-100 p-12">
                 <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-24 h-24 bg-linear-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <FiZap className="h-12 w-12 text-purple-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">
