@@ -3,6 +3,8 @@ import { FiSend, FiLoader } from 'react-icons/fi';
 import PlatformSelector from './PlatformSelector';
 
 const ContentForm = ({ config, onSubmit, loading }) => {
+  console.log('📋 ContentForm config:', config); // Debug
+  
   const [formData, setFormData] = useState({
     topic: '',
     platform: 'linkedin',
@@ -39,7 +41,7 @@ const ContentForm = ({ config, onSubmit, loading }) => {
           value={formData.topic}
           onChange={(e) => handleChange('topic', e.target.value)}
           placeholder="Ej: Los beneficios de la inteligencia artificial en la educación moderna"
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all resize-none min-h-[100px] placeholder:text-gray-400"
+          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all resize-none min-h-25 placeholder:text-gray-400"
           required
           aria-describedby="topic-desc"
         />
