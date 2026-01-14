@@ -1,7 +1,7 @@
 import { useContentGenerator } from '../hooks/useContentGenerator';
 import ContentForm from '../components/ContentForm';
 import ContentResult from '../components/ContentResult';
-import { FiLoader, FiSparkles } from 'react-icons/fi';
+import { FiLoader, FiZap } from 'react-icons/fi';
 
 const Home = () => {
   const { 
@@ -27,7 +27,7 @@ const Home = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <FiSparkles className="h-8 w-8 text-purple-600" />
+            <FiZap className="h-8 w-8 text-purple-600" />
             <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Generador de Contenido con IA
             </h1>
@@ -44,7 +44,7 @@ const Home = () => {
             <div className="bg-white rounded-2xl shadow-lg border border-purple-100 overflow-hidden">
               <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
                 <div className="flex items-center gap-2">
-                  <FiSparkles className="h-6 w-6 text-white" />
+                  <FiZap className="h-6 w-6 text-white" />
                   <h2 className="text-2xl font-bold text-white">Configuración</h2>
                 </div>
                 <p className="text-purple-100 mt-2">
@@ -90,7 +90,7 @@ const Home = () => {
               <div className="bg-white rounded-2xl shadow-lg border border-purple-100 p-12">
                 <div className="text-center">
                   <div className="w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <FiSparkles className="h-12 w-12 text-purple-600" />
+                    <FiZap className="h-12 w-12 text-purple-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">
                     Comienza a crear
