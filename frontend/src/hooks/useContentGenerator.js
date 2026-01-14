@@ -68,7 +68,7 @@ export const useContentGenerator = () => {
         additional_context: formData.additionalContext || '',
         tone: formData.tone || '',
         keywords: formData.keywords || '',
-        image_prompt: formData.imagePrompt || formData.topic,
+        // image_prompt: formData.imagePrompt || formData.topic, // ⚠️ COMENTADO temporalmente - Esperar a que backend lo agregue
         llm_provider: formData.llmProvider,
         language:  LANGUAGE_MAP[formData.language] || 'Spanish',
       });
