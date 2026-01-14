@@ -15,7 +15,7 @@ const Home = () => {
 
   if (configLoading) {
     return (
-      <div className="flex items-center justify-center min-h-[400px]">
+      <div className="flex items-center justify-center min-h-100">
         <FiLoader className="h-8 w-8 animate-spin text-primary-600" />
       </div>
     );
@@ -61,7 +61,7 @@ const Home = () => {
                   <img 
                     src={result.image_url} 
                     alt="Contenido generado por IA" 
-                    className="rounded-lg shadow-md max-w-full h-auto object-cover max-h-[500px]"
+                    className="rounded-lg shadow-md max-w-full h-auto object-cover max-h-125"
                     loading="lazy"
                   />
                 </div>
