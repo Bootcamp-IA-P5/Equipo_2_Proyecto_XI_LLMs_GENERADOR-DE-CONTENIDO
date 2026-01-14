@@ -1,4 +1,4 @@
-import { FiSparkles } from 'react-icons/fi';
+import { FiZap } from 'react-icons/fi';
 
 export default function Nav() {
   return (
@@ -6,7 +6,7 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg">
-            <FiSparkles className="text-white text-2xl" />
+            <FiZap className="text-white text-2xl" />
           </div>
           <div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
