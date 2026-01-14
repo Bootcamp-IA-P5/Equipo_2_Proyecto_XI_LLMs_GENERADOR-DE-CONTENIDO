@@ -33,7 +33,7 @@ const ContentResult = ({ result, onClear }) => {
         icon: '❌',
         style: {
           borderRadius: '12px',
-        },
+        }, err
       });
     }
   };
@@ -41,7 +41,7 @@ const ContentResult = ({ result, onClear }) => {
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-purple-100 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-50 to-purple-50 px-6 py-4 border-b border-gray-200">
+      <div className="bg-linear-to-r from-gray-50 to-purple-50 px-6 py-4 border-b border-gray-200">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className={`p-2.5 rounded-xl ${config.badge} shadow-sm`}>

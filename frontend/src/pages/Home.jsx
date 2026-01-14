@@ -22,13 +22,13 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-3">
             <FiZap className="h-8 w-8 text-purple-600" />
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl font-bold bg-linear-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
               Generador de Contenido con IA
             </h1>
           </div>
@@ -42,7 +42,7 @@ const Home = () => {
           {/* Left Column - Configuration Form */}
           <div className="space-y-6">
             <div className="bg-white rounded-2xl shadow-lg border border-purple-100 overflow-hidden">
-              <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+              <div className="bg-linear-to-r from-purple-600 to-pink-600 p-6">
                 <div className="flex items-center gap-2">
                   <FiZap className="h-6 w-6 text-white" />
                   <h2 className="text-2xl font-bold text-white">Configuración</h2>
