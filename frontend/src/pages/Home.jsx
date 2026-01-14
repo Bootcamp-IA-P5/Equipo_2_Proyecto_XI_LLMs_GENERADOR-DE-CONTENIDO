@@ -1,7 +1,7 @@
 import { useContentGenerator } from '../hooks/useContentGenerator';
 import ContentForm from '../components/ContentForm';
 import ContentResult from '../components/ContentResult';
-import { FiLoader } from 'react-icons/fi';
+import { FiLoader, FiSparkles } from 'react-icons/fi';
 
 const Home = () => {
   const { 
@@ -15,60 +15,108 @@ const Home = () => {
 
   if (configLoading) {
     return (
-      <div className="flex items-center justify-center min-h-100">
-        <FiLoader className="h-8 w-8 animate-spin text-primary-600" />
+      <div className="flex items-center justify-center min-h-screen">
+        <FiLoader className="h-8 w-8 animate-spin text-purple-600" />
       </div>
     );
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          🚀 Generador de Contenido con IA
-        </h1>
-        <p className="text-gray-600">
-          Crea contenido optimizado para diferentes plataformas y audiencias
-        </p>
-      </div>
-
-      {/* Main Content */}
-      <div className="grid gap-8">
-        {/* Form Card */}
-        <div className="card bg-white p-6 rounded-lg shadow-sm">
-          <ContentForm
-            config={config}
-            onSubmit={generateContent}
-            loading={loading}
-          />
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <FiSparkles className="h-8 w-8 text-purple-600" />
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Generador de Contenido con IA
+            </h1>
+          </div>
+          <p className="text-gray-600 text-lg">
+            Crea contenido optimizado para diferentes plataformas y audiencias
+          </p>
         </div>
 
-        {/* Result & Image Section */}
-        {result && (
+        {/* Main Content - Two Column Layout */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Left Column - Configuration Form */}
           <div className="space-y-6">
-            <ContentResult 
-              result={result} 
-              onClear={clearResult}
-            />
-            
-            {result.image_url && (
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <h3 className="text-lg font-medium text-gray-800 mb-3">
-                  🎨 Imagen Sugerida
-                </h3>
-                <div className="flex justify-center bg-gray-50 rounded-lg p-2">
-                  <img 
-                    src={result.image_url} 
-                    alt="Contenido generado por IA" 
-                    className="rounded-lg shadow-md max-w-full h-auto object-cover max-h-125"
-                    loading="lazy"
-                  />
+            <div className="bg-white rounded-2xl shadow-lg border border-purple-100 overflow-hidden">
+              <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+                <div className="flex items-center gap-2">
+                  <FiSparkles className="h-6 w-6 text-white" />
+                  <h2 className="text-2xl font-bold text-white">Configuración</h2>
+                </div>
+                <p className="text-purple-100 mt-2">
+                  Personaliza tu contenido generado por IA
+                </p>
+              </div>
+              <div className="p-6">
+                <ContentForm
+                  config={config}
+                  onSubmit={generateContent}
+                  loading={loading}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Generated Content */}
+          <div className="space-y-6">
+            {result ? (
+              <>
+                <ContentResult 
+                  result={result} 
+                  onClear={clearResult}
+                />
+                
+                {result.image_url && (
+                  <div className="bg-white rounded-2xl shadow-lg border border-purple-100 p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                      🎨 Imagen Generada
+                    </h3>
+                    <div className="rounded-xl overflow-hidden border border-gray-200">
+                      <img 
+                        src={result.image_url} 
+                        alt="Contenido generado por IA" 
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="bg-white rounded-2xl shadow-lg border border-purple-100 p-12">
+                <div className="text-center">
+                  <div className="w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <FiSparkles className="h-12 w-12 text-purple-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    Comienza a crear
+                  </h3>
+                  <p className="text-gray-600 max-w-md mx-auto">
+                    Completa el formulario de la izquierda y selecciona al menos una plataforma para generar contenido optimizado con IA
+                  </p>
+                  <div className="mt-8 grid grid-cols-2 gap-4 max-w-md mx-auto">
+                    <div className="bg-purple-50 rounded-lg p-4 border border-purple-100">
+                      <p className="text-purple-600 font-semibold">✓ Multi-plataforma</p>
+                    </div>
+                    <div className="bg-pink-50 rounded-lg p-4 border border-pink-100">
+                      <p className="text-pink-600 font-semibold">✓ Personalizable</p>
+                    </div>
+                    <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                      <p className="text-blue-600 font-semibold">✓ Varios modelos</p>
+                    </div>
+                    <div className="bg-orange-50 rounded-lg p-4 border border-orange-100">
+                      <p className="text-orange-600 font-semibold">✓ Multi-idioma</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
