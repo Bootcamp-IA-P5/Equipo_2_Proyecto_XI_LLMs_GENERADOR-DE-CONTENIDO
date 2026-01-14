@@ -45,12 +45,13 @@ export const useContentGenerator = () => {
         audience: formData.audience,
         additional_context: formData.additionalContext || '',
         tone: formData.tone || '',
+        keywords: formData.keywords || '',
         llm_provider: formData.llmProvider,
-        language:  LANGUAGE_MAP[formData.language] || 'Spanish', // ✅ AÑADIDO:  Mapear idioma
+        language:  LANGUAGE_MAP[formData.language] || 'Spanish',
       });
       
       setResult(data);
-      toast.success('¡Contenido generado exitosamente! ');
+      toast.success('¡Contenido generado exitosamente! 🎉');
       return data;
     } catch (err) {
       const errorMessage = err.response?.data?.detail || 'Error al generar contenido';
