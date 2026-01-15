@@ -12,7 +12,6 @@ const ContentForm = ({ config, onSubmit, loading }) => {
     additionalContext: '',
     tone: '',
     keywords: '',
-    imagePrompt: '',
     llmProvider: 'groq',
     language: 'es',
   });
@@ -158,26 +157,6 @@ const ContentForm = ({ config, onSubmit, loading }) => {
           />
           <p className="text-xs text-gray-500 mt-1">Separa con comas las keywords</p>
         </div>
-      </div>
-
-      {/* Image Description */}
-      <div>
-        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="imagePrompt">
-          <span className="text-lg">🖼️</span>
-          Descripción de la imagen
-          <span className="text-xs text-gray-500 font-normal">(Opcional)</span>
-        </label>
-        <input
-          id="imagePrompt"
-          type="text"
-          value={formData.imagePrompt}
-          onChange={(e) => handleChange('imagePrompt', e.target.value)}
-          placeholder="Ej: Una ilustración moderna de inteligencia artificial en educación..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all placeholder:text-gray-400"
-        />
-        <p className="text-xs text-gray-500 mt-1">
-          Describe la imagen que quieres generar para acompañar tu contenido
-        </p>
       </div>
 
       {/* Additional Context */}
