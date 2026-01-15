@@ -11,7 +11,6 @@ const ContentForm = ({ config, onSubmit, loading }) => {
     audience: 'general',
     additionalContext: '',
     tone: '',
-    keywords: '',
     llmProvider: 'groq',
     language: 'es',
   });
@@ -121,42 +120,23 @@ const ContentForm = ({ config, onSubmit, loading }) => {
         </select>
       </div>
 
-      {/* Tone & Keywords */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="tone">
-            <span className="text-lg">🎨</span>
-            Tono específico
-            <span className="text-xs text-gray-500 font-normal">(Opcional)</span>
-          </label>
-          <input
-            id="tone"
-            type="text"
-            value={formData.tone}
-            onChange={(e) => handleChange('tone', e.target.value)}
-            placeholder="Ej: inspirador, humorístico, formal..."
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all placeholder:text-gray-400"
-            aria-describedby="tone-desc"
-          />
-          <p id="tone-desc" className="text-xs text-gray-500 mt-1">Lo supongo humorístico, técnico, formal</p>
-        </div>
-
-        <div>
-          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="keywords">
-            <span className="text-lg">🔑</span>
-            Palabras clave
-            <span className="text-xs text-gray-500 font-normal">(Opcional)</span>
-          </label>
-          <input
-            id="keywords"
-            type="text"
-            value={formData.keywords}
-            onChange={(e) => handleChange('keywords', e.target.value)}
-            placeholder="Ej: innovación, educación, tecnología..."
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all placeholder:text-gray-400"
-          />
-          <p className="text-xs text-gray-500 mt-1">Separa con comas las keywords</p>
-        </div>
+      {/* Tone */}
+      <div>
+        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="tone">
+          <span className="text-lg">🎨</span>
+          Tono específico
+          <span className="text-xs text-gray-500 font-normal">(Opcional)</span>
+        </label>
+        <input
+          id="tone"
+          type="text"
+          value={formData.tone}
+          onChange={(e) => handleChange('tone', e.target.value)}
+          placeholder="Ej: inspirador, humorístico, formal..."
+          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all placeholder:text-gray-400"
+          aria-describedby="tone-desc"
+        />
+        <p id="tone-desc" className="text-xs text-gray-500 mt-1">Humorístico, técnico, formal, inspirador...</p>
       </div>
 
       {/* Additional Context */}
