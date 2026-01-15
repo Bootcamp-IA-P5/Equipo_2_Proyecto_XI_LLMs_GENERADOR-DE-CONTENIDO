@@ -6,6 +6,7 @@ from typing import Optional
 from app.agents.content_agent import ContentAgent
 from app.agents.financial_agent import FinancialAgent
 from app.agents.science_agent import ScienceAgent
+from app.services.image_service import ImageService
 
 
 class AgentType(str, Enum):
@@ -91,5 +92,23 @@ class AgentOrchestrator:
         # 4. Añadir metadata
         result["agent_used"] = agent_type.value
         result["agent_description"] = agent.description
+        
+        # 5. Generar imagen con Pollinations
+        sizes = {
+            "twitter": (1200, 675),
+            "instagram": (1080, 1080),
+            "linkedin": (1200, 627),
+            "blog": (1200, 630)
+        }
+        width, height = sizes.get(platform, (1200, 630))
+        
+        image_url = await ImageService.generate_image(
+            prompt=topic,
+            width=width,
+            height=height
+        )
+        
+        if image_url:
+            result["image_url"] = image_url
         
         return result
