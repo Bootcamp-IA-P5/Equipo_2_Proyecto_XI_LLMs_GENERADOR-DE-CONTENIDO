@@ -61,7 +61,7 @@ export const useContentGenerator = () => {
     setResult(null);
 
     try {
-      const data = await contentService.generateContent({
+      const payload = {
         topic: formData.topic,
         platform: formData.platform,
         audience: formData.audience,
@@ -71,7 +71,11 @@ export const useContentGenerator = () => {
         // image_prompt: formData.imagePrompt || formData.topic, // ⚠️ COMENTADO temporalmente - Esperar a que backend lo agregue
         llm_provider: formData.llmProvider,
         language:  LANGUAGE_MAP[formData.language] || 'Spanish',
-      });
+      };
+      
+      console.log('📤 Payload enviado al backend:', payload);
+      
+      const data = await contentService.generateContent(payload);
       
       setResult(data);
       toast.success('¡Contenido generado exitosamente! 🎉');
