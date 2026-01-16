@@ -98,6 +98,15 @@ class TestContentAgent:
             additional_context=additional_context
         )
         
+        # Verificar que el resultado tiene la estructura correcta
+        assert result is not None
+        assert isinstance(result, dict)
+        assert "content" in result
+        assert "topic" in result
+        assert result["topic"] == "Machine Learning"
+        assert result["platform"] == "blog"
+        assert result["audience"] == "estudiantes"
+        
         # Verificar que se llamó al LLM
         mock_llm_service.generate.assert_called_once()
         
