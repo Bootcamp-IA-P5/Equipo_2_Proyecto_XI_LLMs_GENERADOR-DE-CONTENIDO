@@ -2,7 +2,7 @@
 Graph Store para Graph RAG usando NetworkX
 """
 import networkx as nx
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict
 import json
 import re
 
