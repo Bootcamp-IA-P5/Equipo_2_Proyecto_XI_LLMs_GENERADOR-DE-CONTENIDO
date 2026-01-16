@@ -32,21 +32,7 @@ class KnowledgeGraph:
     
     def extract_entities_from_text(self, text: str, llm_service) -> List[Dict]: 
         """Extrae entidades y relaciones de un texto usando LLM"""
-        extraction_prompt = f"""Extrae las entidades y relaciones científicas del siguiente texto. 
-
-TEXTO:
-{text}
-
-Responde SOLO con JSON válido en este formato exacto:
-{{
-    "entities": [
-        {{"id": "entity_1", "name": "Nombre", "type": "concept|person|organization|technology|theory"}},
-    ],
-    "relations": [
-        {{"source": "entity_1", "target": "entity_2", "relation": "related_to|discovers|develops|proves|contradicts"}}
-    ]
-}}
-"""
+        # TODO: construir prompt y llamar a llm_service para extraer entidades y relaciones
         # Nota: Esto requiere llamar al LLM de forma síncrona o manejar async
         return []  # Placeholder - implementar con LLM
     
