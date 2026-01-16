@@ -3,7 +3,7 @@ Rutas específicas para contenido financiero
 """
 from fastapi import APIRouter
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import List
 from app.services.financial_service import FinancialService
 
 router = APIRouter(prefix="/financial", tags=["Financial"])
