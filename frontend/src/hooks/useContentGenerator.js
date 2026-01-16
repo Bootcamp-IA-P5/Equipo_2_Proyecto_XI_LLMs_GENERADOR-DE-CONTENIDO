@@ -7,7 +7,7 @@ const LANGUAGE_MAP = {
   es: 'Spanish',
   en: 'English',
   fr: 'French',
-  it:  'Italian',
+  it: 'Italian',
 };
 
 export const useContentGenerator = () => {
@@ -46,11 +46,11 @@ export const useContentGenerator = () => {
         additional_context: formData.additionalContext || '',
         tone: formData.tone || '',
         llm_provider: formData.llmProvider,
-        language:  LANGUAGE_MAP[formData.language] || 'Spanish', // ✅ AÑADIDO:  Mapear idioma
+        language: LANGUAGE_MAP[formData.language] || 'Spanish', // ✅ AÑADIDO: Mapear idioma
       });
       
       setResult(data);
-      toast.success('¡Contenido generado exitosamente! ');
+      toast.success('¡Contenido generado exitosamente!');
       return data;
     } catch (err) {
       const errorMessage = err.response?.data?.detail || 'Error al generar contenido';
