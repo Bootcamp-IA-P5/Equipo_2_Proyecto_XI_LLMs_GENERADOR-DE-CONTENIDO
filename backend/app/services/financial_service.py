@@ -62,7 +62,6 @@ class FinancialService:
         try:
             ticker = yf.Ticker(symbol)
             info = ticker.info
-            hist = ticker.history(period="1mo")
             
             return {
                 "symbol": symbol,
