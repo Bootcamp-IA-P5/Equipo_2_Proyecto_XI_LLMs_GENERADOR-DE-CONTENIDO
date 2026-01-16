@@ -7,7 +7,7 @@ const LANGUAGE_MAP = {
   es: 'Spanish',
   en: 'English',
   fr: 'French',
-  it:  'Italian',
+  it: 'Italian',
 };
 
 export const useContentGenerator = () => {
