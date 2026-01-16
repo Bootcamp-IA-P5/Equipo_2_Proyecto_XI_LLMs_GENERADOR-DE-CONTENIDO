@@ -3,21 +3,12 @@ Agente para contenido financiero con datos en tiempo real
 """
 from app.services.llm_service import LLMService
 from app.services.financial_service import FinancialService
-from app.services.image_service import ImageService
 
 
 class FinancialAgent:
     """Agente especializado en contenido financiero con datos actualizados"""
     
     description = "Agente financiero con acceso a datos de mercado en tiempo real"
-    
-    # Tamaños de imagen por plataforma
-    PLATFORM_IMAGE_SIZES = {
-        "twitter": (1200, 675),
-        "instagram": (1080, 1080),
-        "linkedin": (1200, 627),
-        "blog": (1200, 630)
-    }
     
     FINANCIAL_PROMPT = """Eres un analista financiero y creador de contenido especializado en mercados.
 
@@ -71,20 +62,10 @@ Incluye siempre:  "Este contenido es informativo y no constituye asesoramiento f
         
         content = await self.llm_service.generate(prompt)
         
-        # Generar imagen
-        width, height = self.PLATFORM_IMAGE_SIZES.get(platform, (1200, 630))
-        image_url = await ImageService.generate_image(
-            prompt=f"financial markets {topic}",
-            width=width,
-            height=height
-        )
-        
         return {
             "content": content,
             "topic": topic,
             "platform": platform,
             "market_summary": FinancialService.get_market_summary(),
-            "data_timestamp": "Real-time",
-            "image_url": image_url,
-            "model_used": self.llm_service.model_name
+            "data_timestamp": "Real-time"
         }

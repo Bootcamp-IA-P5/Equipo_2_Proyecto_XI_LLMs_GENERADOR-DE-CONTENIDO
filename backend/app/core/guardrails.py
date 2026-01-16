@@ -2,7 +2,7 @@
 Sistema de guardrails para validación y calidad del contenido
 """
 import re
-from typing import Tuple, List
+from typing import List
 from dataclasses import dataclass
 
 

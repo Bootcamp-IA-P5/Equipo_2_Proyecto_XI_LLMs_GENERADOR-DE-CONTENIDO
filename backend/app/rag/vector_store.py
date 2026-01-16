@@ -4,7 +4,7 @@ Vector Store con ChromaDB para RAG
 import chromadb
 from chromadb.config import Settings as ChromaSettings
 from sentence_transformers import SentenceTransformer
-from typing import List, Optional
+from typing import List
 from app.core.config import get_settings
 from app.rag.arxiv_loader import ArxivLoader, ArxivDocument
 

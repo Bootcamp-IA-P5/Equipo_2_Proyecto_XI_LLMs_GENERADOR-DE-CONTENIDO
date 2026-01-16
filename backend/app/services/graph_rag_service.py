@@ -1,7 +1,7 @@
 """
 Servicio Graph RAG para contenido científico avanzado
 """
-from typing import List, Optional
+from typing import List
 from app.rag.graph_store import KnowledgeGraph
 from app.rag.vector_store import VectorStore
 from app.services.llm_service import LLMService

@@ -3,9 +3,7 @@ Servicio para obtener información financiera actualizada
 """
 import yfinance as yf
 import feedparser
-from datetime import datetime, timedelta
-from typing import Optional
-import httpx
+from datetime import datetime
 
 
 class FinancialService:
@@ -62,7 +60,6 @@ class FinancialService:
         try:
             ticker = yf.Ticker(symbol)
             info = ticker.info
-            hist = ticker.history(period="1mo")
             
             return {
                 "symbol": symbol,
