@@ -3,7 +3,7 @@ Rutas específicas para contenido científico
 """
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional
 from app.rag.arxiv_loader import ArxivLoader
 from app.services.science_rag_service import ScienceRAGService
 
