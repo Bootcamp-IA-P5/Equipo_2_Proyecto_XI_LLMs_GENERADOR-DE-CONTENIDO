@@ -50,7 +50,7 @@ export const useContentGenerator = () => {
       });
       
       setResult(data);
-      toast.success('¡Contenido generado exitosamente! ');
+      toast.success('¡Contenido generado exitosamente!');
       return data;
     } catch (err) {
       const errorMessage = err.response?.data?.detail || 'Error al generar contenido';
