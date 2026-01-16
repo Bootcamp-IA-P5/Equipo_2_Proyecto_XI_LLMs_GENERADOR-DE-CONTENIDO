@@ -3,7 +3,7 @@ Servicio para obtener información financiera actualizada
 """
 import yfinance as yf
 import feedparser
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Optional
 import httpx
 
