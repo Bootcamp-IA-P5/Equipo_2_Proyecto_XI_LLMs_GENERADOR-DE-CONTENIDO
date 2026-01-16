@@ -3,9 +3,9 @@ import { FiCopy, FiCheck, FiRefreshCw, FiTwitter, FiInstagram, FiLinkedin, FiFil
 import toast from 'react-hot-toast';
 
 const platformConfig = {
-  blog: { icon: FiFileText, color:  'text-purple-600', bg: 'bg-purple-50' },
+  blog: { icon: FiFileText, color: 'text-purple-600', bg: 'bg-purple-50' },
   twitter: { icon: FiTwitter, color: 'text-blue-500', bg: 'bg-blue-50' },
-  instagram:  { icon: FiInstagram, color: 'text-pink-600', bg: 'bg-pink-50' },
+  instagram: { icon: FiInstagram, color: 'text-pink-600', bg: 'bg-pink-50' },
   linkedin: { icon: FiLinkedin, color: 'text-sky-700', bg: 'bg-sky-50' },
 };
 
