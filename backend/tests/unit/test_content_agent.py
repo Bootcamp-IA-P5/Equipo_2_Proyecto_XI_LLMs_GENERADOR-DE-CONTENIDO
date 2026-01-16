@@ -2,7 +2,7 @@
 Tests unitarios para ContentAgent
 """
 import pytest
-from unittest.mock import AsyncMock, patch, MagicMock
+from unittest.mock import patch
 from app.agents.content_agent import ContentAgent
 
 

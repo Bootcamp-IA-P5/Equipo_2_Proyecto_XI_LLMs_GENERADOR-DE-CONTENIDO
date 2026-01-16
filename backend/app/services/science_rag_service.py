@@ -1,9 +1,8 @@
 """
 Servicio RAG para contenido científico divulgativo
 """
-from typing import List, Optional
+from typing import List
 from app.rag.vector_store import VectorStore
-from app.rag.arxiv_loader import ArxivLoader
 from app.services.llm_service import LLMService
 
 
