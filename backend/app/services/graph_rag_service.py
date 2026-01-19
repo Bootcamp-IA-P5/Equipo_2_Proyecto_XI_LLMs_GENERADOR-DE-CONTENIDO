@@ -6,7 +6,7 @@ from typing import List, Optional, Dict
 import re
 from app.rag.graph_store import KnowledgeGraph
 from app.rag.vector_store import VectorStore
-from app.services.llm_service import LLMService
+from app.services.llm_service import get_llm_service
 
 
 class GraphRAGService:
@@ -77,7 +77,7 @@ Return a compressed version (max 500 words) containing ONLY information relevant
     def __init__(self, llm_provider: str = "groq", enable_hyde: bool = True, enable_auto_learn: bool = True):
         self.knowledge_graph = KnowledgeGraph(persist_path="./knowledge_graph.json")
         self.vector_store = VectorStore(collection_name="science_papers", enable_reranking=True)
-        self.llm_service = LLMService(provider=llm_provider)
+        self.llm_service = get_llm_service(provider=llm_provider)
         self.enable_hyde = enable_hyde
         self.enable_auto_learn = enable_auto_learn
         

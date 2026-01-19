@@ -12,7 +12,7 @@ class TestContentAgent:
     @pytest.fixture
     def agent(self, mock_llm_service):
         """Crea instancia de ContentAgent con LLM mockeado"""
-        with patch('app.agents.content_agent.LLMService') as mock:
+        with patch('app.agents.content_agent.get_llm_service') as mock:
             mock.return_value = mock_llm_service
             return ContentAgent(llm_provider="groq")
     
@@ -108,7 +108,7 @@ class TestContentAgent:
     @pytest.mark.asyncio
     async def test_agent_initialization(self):
         """Test: Inicialización del agente"""
-        with patch('app.agents.content_agent.LLMService') as mock:
+        with patch('app.agents.content_agent.get_llm_service') as mock:
             agent = ContentAgent(llm_provider="groq")
             assert agent.llm_service is not None
             mock.assert_called_once_with(provider="groq")

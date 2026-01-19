@@ -12,7 +12,7 @@ class TestFinancialAgent:
     @pytest.fixture
     def agent(self, mock_llm_service):
         """Crea instancia de FinancialAgent con servicios mockeados"""
-        with patch('app.agents.financial_agent.LLMService') as mock_llm:
+        with patch('app.agents.financial_agent.get_llm_service') as mock_llm:
             mock_llm.return_value = mock_llm_service
             return FinancialAgent(llm_provider="groq")
     
@@ -41,7 +41,7 @@ class TestFinancialAgent:
     @pytest.mark.asyncio
     async def test_agent_initialization(self):
         """Test: Inicialización correcta del agente"""
-        with patch('app.agents.financial_agent.LLMService'):
+        with patch('app.agents.financial_agent.get_llm_service'):
             agent = FinancialAgent(llm_provider="groq")
             assert agent.llm_service is not None
     

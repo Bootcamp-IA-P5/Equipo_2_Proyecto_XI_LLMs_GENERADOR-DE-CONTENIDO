@@ -4,7 +4,7 @@ Servicio RAG para contenido científico divulgativo
 from typing import List, Optional
 from app.rag.vector_store import VectorStore
 from app.rag.arxiv_loader import ArxivLoader
-from app.services.llm_service import LLMService
+from app.services.llm_service import get_llm_service
 
 
 class ScienceRAGService:
@@ -44,7 +44,7 @@ NO incluyas meta-comentarios sobre el contenido.
 
     def __init__(self, llm_provider: str = "groq"):
         self.vector_store = VectorStore(collection_name="science_papers")
-        self.llm_service = LLMService(provider=llm_provider)
+        self.llm_service = get_llm_service(provider=llm_provider)
     
     async def generate_content(
         self,

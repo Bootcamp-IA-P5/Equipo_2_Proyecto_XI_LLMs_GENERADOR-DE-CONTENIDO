@@ -1,7 +1,7 @@
 """
 Agente para contenido general
 """
-from app.services.llm_service import LLMService
+from app.services.llm_service import get_llm_service
 from app.core.prompts import build_content_prompt
 
 
@@ -11,7 +11,7 @@ class ContentAgent:
     description = "Agente de contenido general para blogs y redes sociales"
     
     def __init__(self, llm_provider:  str = "groq"):
-        self.llm_service = LLMService(provider=llm_provider)
+        self.llm_service = get_llm_service(provider=llm_provider)
     
     async def generate(
         self,

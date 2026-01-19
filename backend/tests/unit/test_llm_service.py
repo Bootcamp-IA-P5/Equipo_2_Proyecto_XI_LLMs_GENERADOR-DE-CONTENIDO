@@ -3,11 +3,15 @@ Tests unitarios para LLMService
 """
 import pytest
 from unittest.mock import AsyncMock, patch, MagicMock
-from app.services.llm_service import LLMService
+from app.services.llm_service import LLMService, get_llm_service
 
 
 class TestLLMService:
     """Suite de tests para LLMService"""
+    
+    def setup_method(self):
+        """Reset singleton instances before each test"""
+        LLMService.reset_instances()
     
     @pytest.mark.asyncio
     async def test_groq_provider_initialization(self):
@@ -57,3 +61,25 @@ class TestLLMService:
         """Test: Provider inválido lanza excepción"""
         with pytest.raises(ValueError):
             LLMService(provider="invalid_provider")
+    
+    def test_singleton_pattern(self):
+        """Test: Singleton returns same instance for same provider"""
+        with patch('app.services.llm_service.ChatGroq'):
+            service1 = LLMService(provider="groq")
+            service2 = LLMService(provider="groq")
+            assert service1 is service2
+    
+    def test_different_providers_different_instances(self):
+        """Test: Different providers return different instances"""
+        with patch('app.services.llm_service.ChatGroq'), \
+             patch('app.services.llm_service.Ollama'):
+            groq_service = LLMService(provider="groq")
+            ollama_service = LLMService(provider="ollama")
+            assert groq_service is not ollama_service
+    
+    def test_get_llm_service_factory(self):
+        """Test: get_llm_service factory returns singleton"""
+        with patch('app.services.llm_service.ChatGroq'):
+            service1 = get_llm_service(provider="groq")
+            service2 = get_llm_service(provider="groq")
+            assert service1 is service2

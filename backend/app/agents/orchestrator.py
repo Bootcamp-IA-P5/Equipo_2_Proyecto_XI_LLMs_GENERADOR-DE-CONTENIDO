@@ -22,7 +22,7 @@ from app.agents.content_agent import ContentAgent
 from app.agents.financial_agent import FinancialAgent
 from app.agents.science_agent import ScienceAgent
 from app.services.image_service import ImageService
-from app.services.llm_service import LLMService
+from app.services.llm_service import get_llm_service
 
 
 class AgentType(str, Enum):
@@ -248,8 +248,8 @@ Respond with ONLY a JSON object (no markdown, no explanation):
             AgentType.SCIENCE: ScienceAgent(llm_provider),
         }
         
-        # LLM service for routing decisions
-        self.router_llm = LLMService(provider=llm_provider)
+        # LLM service for routing decisions (shared singleton instance)
+        self.router_llm = get_llm_service(provider=llm_provider)
         
         # Cache and metrics
         self.cache = RequestCache() if enable_caching else None

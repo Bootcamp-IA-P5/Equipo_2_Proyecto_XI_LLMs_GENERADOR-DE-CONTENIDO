@@ -1,7 +1,7 @@
 """
 Agente para contenido financiero con datos en tiempo real
 """
-from app.services.llm_service import LLMService
+from app.services.llm_service import get_llm_service
 from app.services.financial_service import FinancialService
 
 
@@ -37,7 +37,7 @@ Incluye siempre:  "Este contenido es informativo y no constituye asesoramiento f
 """
 
     def __init__(self, llm_provider: str = "groq"):
-        self.llm_service = LLMService(provider=llm_provider)
+        self.llm_service = get_llm_service(provider=llm_provider)
     
     async def generate(
         self,
