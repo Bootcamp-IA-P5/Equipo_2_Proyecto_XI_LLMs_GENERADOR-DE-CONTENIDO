@@ -15,11 +15,11 @@ class Settings(BaseSettings):
     API_PREFIX: str = "/api/v1"
     
     # CORS
-    CORS_ORIGINS: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173"]
+    CORS_ORIGINS: list[str] = ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000", "http://127.0.0.1:3000"]
     
     # LLM Providers
     GROQ_API_KEY: str = ""
-    OLLAMA_BASE_URL: str = "http://localhost:11434"
+    OLLAMA_BASE_URL: str = "http://host.docker.internal:11434"
     
     # Default LLM
     DEFAULT_LLM_PROVIDER: str = "groq"
@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     LANGCHAIN_PROJECT: str = "content-generator"
     
     # Pollinations (Imágenes IA)
-    POLLINATIONS_API_KEY: Optional[str] = None
+    POLLINATIONS_API_KEY: Optional[str] = "sk_sHsbQumm7FKKSSKJwwGRjCasHDhNfZDE"
     
     # ChromaDB (RAG)
     CHROMA_PERSIST_DIR: str = "./chroma_db"
