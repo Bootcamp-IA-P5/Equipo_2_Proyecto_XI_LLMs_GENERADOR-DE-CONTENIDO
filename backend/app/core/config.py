@@ -33,9 +33,9 @@ class Settings(BaseSettings):
     LANGCHAIN_PROJECT: str = "content-generator"
     
     # Pollinations (Imágenes IA)
-    POLLINATIONS_API_KEY: Optional[str] = "sk_sHsbQumm7FKKSSKJwwGRjCasHDhNfZDE"
+    POLLINATIONS_API_KEY: Optional[str] = None
     
-    # ChromaDB (RAG)
+        # ChromaDB (RAG)
     CHROMA_PERSIST_DIR: str = "./chroma_db"
     CHROMA_COLLECTION_NAME: str = "content_knowledge"
     
