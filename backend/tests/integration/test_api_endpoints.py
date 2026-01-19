@@ -2,7 +2,7 @@
 Tests de integración para endpoints de la API
 """
 import pytest
-from httpx import AsyncClient
+from httpx import AsyncClient, ASGITransport
 from app.main import app
 
 
@@ -13,7 +13,8 @@ class TestContentEndpoints:
     @pytest.mark.asyncio
     async def test_health_check(self):
         """Test: Health check endpoint"""
-        async with AsyncClient(app=app, base_url="http://test") as client:
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
             response = await client.get("/api/v1/health")
             assert response.status_code == 200
             data = response.json()
@@ -23,7 +24,8 @@ class TestContentEndpoints:
     @pytest.mark.asyncio
     async def test_content_config(self):
         """Test: Obtener configuración de content"""
-        async with AsyncClient(app=app, base_url="http://test") as client:
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
             response = await client.get("/api/v1/content/config")
             assert response.status_code == 200
             data = response.json()
@@ -34,7 +36,8 @@ class TestContentEndpoints:
     @pytest.mark.asyncio
     async def test_generate_content_endpoint(self, content_request_data):
         """Test: Endpoint de generación de contenido"""
-        async with AsyncClient(app=app, base_url="http://test") as client:
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
             response = await client.post(
                 "/api/v1/content/generate",
                 json=content_request_data
@@ -58,7 +61,8 @@ class TestFinancialEndpoints:
     @pytest.mark.asyncio
     async def test_financial_config(self):
         """Test: Configuración de financial agent"""
-        async with AsyncClient(app=app, base_url="http://test") as client:
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
             response = await client.get("/api/v1/financial/config")
             # El endpoint debe existir
             assert response.status_code in [200, 404]
@@ -71,7 +75,8 @@ class TestScienceEndpoints:
     @pytest.mark.asyncio
     async def test_science_search(self):
         """Test: Búsqueda en arXiv"""
-        async with AsyncClient(app=app, base_url="http://test") as client:
+        transport = ASGITransport(app=app)
+        async with AsyncClient(transport=transport, base_url="http://test") as client:
             response = await client.post(
                 "/api/v1/science/search",
                 json={"query": "machine learning", "max_results": 2}
