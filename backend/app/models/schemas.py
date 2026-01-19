@@ -69,10 +69,15 @@ class ContentResponse(BaseModel):
     llm_provider: str
     model_used: str
     image_url: Optional[str] = None
-    agent_used: Optional[str] = None  # NUEVO
-    sources: Optional[List[SourceInfo]] = None  # NUEVO
-    validation_score: Optional[float] = None  # NUEVO
-    validation_warnings: Optional[List[str]] = None  # NUEVO
+    agent_used: Optional[str] = None
+    sources: Optional[List[SourceInfo]] = None
+    validation_score: Optional[float] = None
+    validation_warnings: Optional[List[str]] = None
+    # New fields from enhanced orchestrator
+    confidence_score: Optional[float] = Field(None, description="Routing confidence (0-1)")
+    processing_time_ms: Optional[float] = Field(None, description="Total processing time in ms")
+    routing_reason: Optional[str] = Field(None, description="Explanation of routing decision")
+    from_cache: bool = Field(False, description="Whether result was served from cache")
 
 
 class PlatformInfo(BaseModel):
