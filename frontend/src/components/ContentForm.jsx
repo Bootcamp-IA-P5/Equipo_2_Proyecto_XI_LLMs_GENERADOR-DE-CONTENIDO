@@ -35,7 +35,7 @@ const ContentForm = ({ config, onSubmit, loading }) => {
           value={formData.topic}
           onChange={(e) => handleChange('topic', e.target.value)}
           placeholder="Ej: Beneficios de la IA en educación"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-200 resize-none min-h-[80px]"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-200 resize-none min-h-20"
           required
         />
       </div>
@@ -134,7 +134,7 @@ const ContentForm = ({ config, onSubmit, loading }) => {
       <button
         type="submit"
         disabled={loading || !formData.topic.trim()}
-        className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold flex items-center justify-center gap-2 disabled:opacity-50"
+        className="w-full py-3 rounded-xl bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold flex items-center justify-center gap-2 disabled:opacity-50"
       >
         {loading ? (
           <>
