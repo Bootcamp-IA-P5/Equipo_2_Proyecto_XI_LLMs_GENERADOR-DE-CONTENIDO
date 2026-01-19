@@ -2,7 +2,7 @@
 Tests unitarios para ContentAgent
 """
 import pytest
-from unittest.mock import AsyncMock, patch, MagicMock
+from unittest.mock import patch
 from app.agents.content_agent import ContentAgent
 
 
@@ -72,7 +72,7 @@ class TestContentAgent:
         
         for tone in tones:
             mock_llm_service.generate.reset_mock()
-            result = await agent.generate(
+            await agent.generate(
                 topic="AI Testing",
                 platform="linkedin",
                 audience="developers",
@@ -90,7 +90,7 @@ class TestContentAgent:
         """Test: Generación con contexto adicional"""
         additional_context = "Incluir estadísticas recientes y casos de uso"
         
-        result = await agent.generate(
+        await agent.generate(
             topic="Machine Learning",
             platform="blog",
             audience="estudiantes",

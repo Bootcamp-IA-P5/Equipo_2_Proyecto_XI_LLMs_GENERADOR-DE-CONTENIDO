@@ -1,9 +1,8 @@
 """
 Servicio RAG para contenido científico divulgativo
 """
-from typing import List, Optional
+from typing import List
 from app.rag.vector_store import VectorStore
-from app.rag.arxiv_loader import ArxivLoader
 from app.services.llm_service import LLMService
 
 
@@ -61,7 +60,7 @@ NO incluyas meta-comentarios sobre el contenido.
         
         # 2. Si no hay suficientes resultados, indexar desde arXiv
         if len(relevant_docs) < 3:
-            indexed = self.vector_store.index_from_arxiv(
+            self.vector_store.index_from_arxiv(
                 query=topic,
                 category=scientific_area,
                 max_papers=15
