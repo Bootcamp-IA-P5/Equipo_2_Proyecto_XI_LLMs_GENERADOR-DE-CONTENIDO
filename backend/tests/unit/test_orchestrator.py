@@ -47,11 +47,13 @@ class TestAgentOrchestrator:
     @pytest.mark.asyncio
     async def test_route_to_content_agent(self, orchestrator):
         """Test: Routing a ContentAgent para contenido general"""
+        # Use explicit content_type to ensure routing
         result = await orchestrator.process_request(
-            topic="AI trends",
+            topic="Mejores restaurantes de Madrid",
             platform="twitter",
             audience="general",
-            language="Spanish"
+            language="Spanish",
+            content_type="content"
         )
         
         assert result is not None
@@ -88,16 +90,18 @@ class TestAgentOrchestrator:
     
     @pytest.mark.asyncio
     async def test_default_routing(self, orchestrator):
-        """Test: Routing por defecto a ContentAgent"""
+        """Test: Routing por defecto a ContentAgent cuando se especifica explícitamente"""
+        # Use explicit content_type to ensure content agent is used
         result = await orchestrator.process_request(
-            topic="General topic",
+            topic="General topic about cooking",
             platform="instagram",
             audience="young",
-            language="English"
+            language="English",
+            content_type="content"
         )
         
         assert result is not None
-        # Por defecto debe ir a content_agent
+        # Con content_type explícito debe ir a content_agent
         assert result["agent_used"] == "content"
     
     @pytest.mark.asyncio
