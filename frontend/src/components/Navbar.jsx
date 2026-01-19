@@ -2,7 +2,7 @@ import { FiZap } from 'react-icons/fi';
 
 export default function Nav() {
   return (
-    <nav className="w-full bg-white border-b border-purple-100 px-8 py-4 shadow-sm">
+    <nav className="w-full bg-white border-b border-purple-100 px-2 shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg">

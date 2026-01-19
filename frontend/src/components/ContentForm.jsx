@@ -3,8 +3,6 @@ import { FiSend, FiLoader } from 'react-icons/fi';
 import PlatformSelector from './PlatformSelector';
 
 const ContentForm = ({ config, onSubmit, loading }) => {
-  console.log('📋 ContentForm config:', config); // Debug
-  
   const [formData, setFormData] = useState({
     topic: '',
     platform: 'linkedin',
@@ -26,54 +24,34 @@ const ContentForm = ({ config, onSubmit, loading }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      {/* Topic */}
+    <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+
+      {/* TEMA */}
       <div>
-        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="topic">
-          <span className="text-lg">📝</span>
-          Tema del contenido
-          <span className="text-red-500">*</span>
+        <label className="font-semibold text-gray-700 mb-1 block">
+          📝 Tema del contenido <span className="text-red-500">*</span>
         </label>
         <textarea
-          id="topic"
           value={formData.topic}
           onChange={(e) => handleChange('topic', e.target.value)}
-          placeholder="Ej: Los beneficios de la inteligencia artificial en la educación moderna"
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all resize-none min-h-25 placeholder:text-gray-400"
+          placeholder="Ej: Beneficios de la IA en educación"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-200 resize-none min-h-[80px]"
           required
-          aria-describedby="topic-desc"
-        />
-        <p id="topic-desc" className="text-xs text-gray-500 mt-1">
-          Describe el tema principal del contenido
-        </p>
-      </div>
-
-      {/* Platform */}
-      <div>
-        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-3">
-          <span className="text-lg">📱</span>
-          Plataformas
-          <span className="text-red-500">*</span>
-        </label>
-        <PlatformSelector
-          platforms={config?.platforms}
-          selected={formData.platform}
-          onChange={(value) => handleChange('platform', value)}
         />
       </div>
 
-      {/* Audience & LLM Provider */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* GRID 3 COLUMNAS */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+        {/* AUDIENCIA */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="audience">
-            <span className="text-lg">👥</span>
-            Audiencia
+          <label className="font-semibold text-gray-700 mb-1 block">
+            👥 Audiencia
           </label>
           <select
-            id="audience"
             value={formData.audience}
             onChange={(e) => handleChange('audience', e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all bg-white"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white"
           >
             {config?.audiences?.map((aud) => (
               <option key={aud.id} value={aud.id}>
@@ -83,108 +61,90 @@ const ContentForm = ({ config, onSubmit, loading }) => {
           </select>
         </div>
 
+        {/* MODELO */}
         <div>
-          <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="llmProvider">
-            <span className="text-lg">🤖</span>
-            Modelo LLM
+          <label className="font-semibold text-gray-700 mb-1 block">
+            🤖 Modelo
           </label>
           <select
-            id="llmProvider"
             value={formData.llmProvider}
             onChange={(e) => handleChange('llmProvider', e.target.value)}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all bg-white"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white"
           >
-            <option value="groq">Groq Cloud - Llama</option>
+            <option value="groq">Groq - Llama</option>
             <option value="ollama">Ollama (Local)</option>
+          </select>
+        </div>
+
+        {/* IDIOMA */}
+        <div>
+          <label className="font-semibold text-gray-700 mb-1 block">
+            🌍 Idioma
+          </label>
+          <select
+            value={formData.language}
+            onChange={(e) => handleChange('language', e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white"
+          >
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="fr">Francés</option>
+            <option value="it">Italiano</option>
           </select>
         </div>
       </div>
 
-      {/* Language */}
+      {/* PLATAFORMAS */}
       <div>
-        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="language">
-          <span className="text-lg">🌍</span>
-          Idioma
+        <label className="font-semibold text-gray-700 mb-2 block">
+          📱 Plataformas <span className="text-red-500">*</span>
         </label>
-        <select
-          id="language"
-          value={formData.language}
-          onChange={(e) => handleChange('language', e.target.value)}
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all bg-white"
-          aria-label="Seleccionar idioma de salida"
-        >
-          <option value="es">Español (por defecto)</option>
-          <option value="en">Inglés</option>
-          <option value="fr">Francés</option>
-          <option value="it">Italiano</option>
-        </select>
+        <PlatformSelector
+          platforms={config?.platforms}
+          selected={formData.platform}
+          onChange={(value) => handleChange('platform', value)}
+          compact
+        />
       </div>
 
-      {/* Tone */}
-      <div>
-        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="tone">
-          <span className="text-lg">🎨</span>
-          Tono específico
-          <span className="text-xs text-gray-500 font-normal">(Opcional)</span>
-        </label>
+      {/* TONO + CONTEXTO */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <input
-          id="tone"
           type="text"
           value={formData.tone}
           onChange={(e) => handleChange('tone', e.target.value)}
-          placeholder="Ej: inspirador, humorístico, formal..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all placeholder:text-gray-400"
-          aria-describedby="tone-desc"
+          placeholder="🎨 Tono (opcional)"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
         />
-        <p id="tone-desc" className="text-xs text-gray-500 mt-1">Humorístico, técnico, formal, inspirador...</p>
-      </div>
-
-      {/* Additional Context */}
-      <div>
-        <label className="flex items-center gap-2 text-sm font-semibold text-gray-800 mb-2" htmlFor="additionalContext">
-          <span className="text-lg">💬</span>
-          Contexto adicional
-          <span className="text-xs text-gray-500 font-normal">(Opcional)</span>
-        </label>
         <input
-          id="additionalContext"
           type="text"
           value={formData.additionalContext}
           onChange={(e) => handleChange('additionalContext', e.target.value)}
-          placeholder="Información extra, keywords..."
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:ring focus:ring-purple-100 transition-all placeholder:text-gray-400"
+          placeholder="💬 Contexto adicional"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
         />
       </div>
 
-      {/* Tip */}
-      <div className="bg-linear-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-4">
-        <div className="flex gap-3">
-          <span className="text-2xl">💡</span>
-          <div>
-            <p className="text-sm font-semibold text-purple-900">Consejo:</p>
-            <p className="text-sm text-purple-700">
-              Cuanto más específico seas con el tema y las palabras clave, mejor será el contenido generado.
-            </p>
-          </div>
-        </div>
+      {/* TIP */}
+      <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 text-xs text-purple-800">
+        💡 Cuanto más específico seas, mejor será el resultado.
       </div>
 
-      {/* Submit Button */}
+      {/* BOTÓN */}
       <button
         type="submit"
         disabled={loading || !formData.topic.trim()}
-        className="w-full bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold py-4 px-6 rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-        aria-disabled={loading || !formData.topic.trim()}
+        className="w-full py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold flex items-center justify-center gap-2 disabled:opacity-50"
       >
         {loading ? (
           <>
-            <FiLoader className="animate-spin h-5 w-5" />
-            Generando contenido...
+            <FiLoader className="animate-spin" />
+            Generando...
           </>
         ) : (
           <>
-            <FiSend className="h-5 w-5" />
-            Generar Contenido
+            <FiSend />
+            Generar contenido
           </>
         )}
       </button>
