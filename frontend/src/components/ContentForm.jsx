@@ -10,7 +10,7 @@ const ContentForm = ({ config, onSubmit, loading }) => {
     additionalContext: '',
     tone: '',
     llmProvider: 'groq',
-    language: 'es', // Español por defecto
+    language: 'es',
   });
 
   const handleChange = (field, value) => {
@@ -20,53 +20,38 @@ const ContentForm = ({ config, onSubmit, loading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.topic.trim()) return;
-    onSubmit(formData); // formData incluye language
+    onSubmit(formData);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Topic */}
+    <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+
+      {/* TEMA */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="topic">
-          📌 Tema del contenido *
+        <label className="font-semibold text-gray-700 mb-1 block">
+          📝 Tema del contenido <span className="text-red-500">*</span>
         </label>
         <textarea
-          id="topic"
           value={formData.topic}
           onChange={(e) => handleChange('topic', e.target.value)}
-          placeholder="Ej: Los beneficios de la inteligencia artificial en la educación moderna"
-          className="input-field min-h-[100px] resize-none"
+          placeholder="Ej: Beneficios de la IA en educación"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-200 resize-none min-h-20"
           required
-          aria-describedby="topic-desc"
-        />
-        <div id="topic-desc" className="sr-only">
-          Describe el tema principal del contenido.
-        </div>
-      </div>
-
-      {/* Platform */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
-          📱 Plataforma
-        </label>
-        <PlatformSelector
-          platforms={config?.platforms}
-          selected={formData.platform}
-          onChange={(value) => handleChange('platform', value)}
         />
       </div>
 
-      {/* Audience & LLM Provider */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* GRID 3 COLUMNAS */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+
+        {/* AUDIENCIA */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="audience">
+          <label className="font-semibold text-gray-700 mb-1 block">
             👥 Audiencia
           </label>
           <select
-            id="audience"
             value={formData.audience}
             onChange={(e) => handleChange('audience', e.target.value)}
-            className="input-field"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white"
           >
             {config?.audiences?.map((aud) => (
               <option key={aud.id} value={aud.id}>
@@ -76,90 +61,90 @@ const ContentForm = ({ config, onSubmit, loading }) => {
           </select>
         </div>
 
+        {/* MODELO */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="llmProvider">
-            🤖 Modelo LLM
+          <label className="font-semibold text-gray-700 mb-1 block">
+            🤖 Modelo
           </label>
           <select
-            id="llmProvider"
             value={formData.llmProvider}
             onChange={(e) => handleChange('llmProvider', e.target.value)}
-            className="input-field"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white"
           >
-            <option value="groq">Groq (Cloud - Rápido)</option>
+            <option value="groq">Groq - Llama</option>
             <option value="ollama">Ollama (Local)</option>
+          </select>
+        </div>
+
+        {/* IDIOMA */}
+        <div>
+          <label className="font-semibold text-gray-700 mb-1 block">
+            🌍 Idioma
+          </label>
+          <select
+            value={formData.language}
+            onChange={(e) => handleChange('language', e.target.value)}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white"
+          >
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="fr">Francés</option>
+            <option value="it">Italiano</option>
           </select>
         </div>
       </div>
 
-      {/* Language selector added */}
+      {/* PLATAFORMAS */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="language">
-          🌐 Idioma
+        <label className="font-semibold text-gray-700 mb-2 block">
+          📱 Plataformas <span className="text-red-500">*</span>
         </label>
-        <select
-          id="language"
-          value={formData.language}
-          onChange={(e) => handleChange('language', e.target.value)}
-          className="input-field"
-          aria-label="Seleccionar idioma de salida"
-        >
-          <option value="es">Español (por defecto)</option>
-          <option value="en">Inglés</option>
-          <option value="fr">Francés</option>
-          <option value="it">Italiano</option>
-        </select>
+        <PlatformSelector
+          platforms={config?.platforms}
+          selected={formData.platform}
+          onChange={(value) => handleChange('platform', value)}
+          compact
+        />
       </div>
 
-      {/* Additional Options */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="tone">
-            🎨 Tono específico (opcional)
-          </label>
-          <input
-            id="tone"
-            type="text"
-            value={formData.tone}
-            onChange={(e) => handleChange('tone', e.target.value)}
-            placeholder="Ej: inspirador, humorístico, formal..."
-            className="input-field"
-            aria-describedby="tone-desc"
-          />
-          <div id="tone-desc" className="sr-only">Opcional: especifica el tono deseado.</div>
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2" htmlFor="additionalContext">
-            📝 Contexto adicional (opcional)
-          </label>
-          <input
-            id="additionalContext"
-            type="text"
-            value={formData.additionalContext}
-            onChange={(e) => handleChange('additionalContext', e.target.value)}
-            placeholder="Información extra, keywords..."
-            className="input-field"
-          />
-        </div>
+      {/* TONO + CONTEXTO */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <input
+          type="text"
+          value={formData.tone}
+          onChange={(e) => handleChange('tone', e.target.value)}
+          placeholder="🎨 Tono (opcional)"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+        />
+        <input
+          type="text"
+          value={formData.additionalContext}
+          onChange={(e) => handleChange('additionalContext', e.target.value)}
+          placeholder="💬 Contexto adicional"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+        />
       </div>
 
-      {/* Submit Button */}
+      {/* TIP */}
+      <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 text-xs text-purple-800">
+        💡 Cuanto más específico seas, mejor será el resultado.
+      </div>
+
+      {/* BOTÓN */}
       <button
         type="submit"
         disabled={loading || !formData.topic.trim()}
-        className="btn-primary w-full"
-        aria-disabled={loading || !formData.topic.trim()}
+        className="w-full py-3 rounded-xl bg-linear-to-r from-purple-600 to-pink-600 text-white font-semibold flex items-center justify-center gap-2 disabled:opacity-50"
       >
         {loading ? (
           <>
-            <FiLoader className="animate-spin h-5 w-5" />
-            Generando contenido...
+            <FiLoader className="animate-spin" />
+            Generando...
           </>
         ) : (
           <>
-            <FiSend className="h-5 w-5" />
-            Generar Contenido
+            <FiSend />
+            Generar contenido
           </>
         )}
       </button>
