@@ -3,7 +3,7 @@ Graph Store para Graph RAG usando NetworkX
 Enhanced with: LLM-based entity extraction, similarity matching, graph persistence
 """
 import networkx as nx
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Optional
 import json
 import re
 import os
