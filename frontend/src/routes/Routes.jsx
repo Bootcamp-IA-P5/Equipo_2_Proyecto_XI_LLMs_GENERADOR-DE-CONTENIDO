@@ -13,4 +13,6 @@ export const router = createBrowserRouter([
             }
         ]
     }
-])
+], {
+    basename: "/content_generator"
+})
