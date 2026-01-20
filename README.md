@@ -70,7 +70,7 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
 | **Graph RAG** | Knowledge Graph, Relaciones Semánticas |
 | **Singleton LLM** | Recursos Optimizados, Conexión Compartida |
 | **Guardrails** | Validación Contenido, IA Responsable |
-| ***align="center">
+<div align="center">
 
 Desarrollado con  para el **Bootcamp de IA F5**
 
