@@ -608,10 +608,10 @@ El proyecto utiliza **GitHub Actions** para integración continua:
 
 | Rol | Miembro | GitHub |
 |-----|---------|--------|
-|  **Scrum Master** | Umit | [@user](https://github.com/) |
-|  **Product Owner** | Ignacio | [@user](https://github.com/) |
-|  **Developer** | Yeder | [@user](https://github.com/) |
-|  **Developer** | Maria | [@user](https://github.com/) |
+|  **Scrum Master** | Umit | [@user](https://github.com/GungorUmit) |
+|  **Product Owner** | Ignacio | [@user](https://github.com/IgnacioCastilloFranco) |
+|  **Developer** | Yeder | [@user](https://github.com/Yedpt) |
+|  **Developer** | Maria | [@user](https://github.com/MariaDunaeva1) |
 
 ---
 
