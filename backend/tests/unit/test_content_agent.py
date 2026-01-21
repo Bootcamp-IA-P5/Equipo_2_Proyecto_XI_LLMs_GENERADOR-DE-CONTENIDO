@@ -80,6 +80,11 @@ class TestContentAgent:
                 tone=tone
             )
             
+            # Verificar que el resultado existe y tiene la estructura correcta
+            assert result is not None
+            assert isinstance(result, dict)
+            assert "content" in result
+            
             mock_llm_service.generate.assert_called_once()
             # Verificar que el prompt incluye el tone
             call_args = mock_llm_service.generate.call_args[0][0]
