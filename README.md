@@ -78,7 +78,7 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
 
 ##  Arquitectura del Sistema
 
-
+```
                                  FRONTEND (React 19 + Vite)                  
                           Tailwind CSS | react-markdown | Axios                   
 
@@ -108,6 +108,7 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
    Ollama Local                    NewsAPI                   KnowledgeGraph (NX)    
                                                              arXiv Loader           
 
+````
 
 ---
 
