@@ -77,39 +77,35 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
 ---##  Arquitectura del Sistema
 
 ```
+                                 FRONTEND (React 19 + Vite)                  
+                          Tailwind CSS | react-markdown | Axios                   
 
-                               FRONTEND (React 19 + Vite)                  
-│                     Tailwind CSS | react-markdown | Axios                   
-──
                                        HTTP/REST
                                       
-─
-                            API GATEWAY (FastAPI)                          
-                    /api/v1/content | /api/v1/health | CORS                  
+                                  API GATEWAY (FastAPI)                          
+                        /api/v1/content | /api/v1/health | CORS                  
+                                                              
 
-                                      
-                                      
-─
                          ORCHESTRATOR (Routing Inteligente)                
-              LLM Routing | Keyword Fallback | Caching | Metrics             
-─
+                  LLM Routing | Keyword Fallback | Caching | Metrics             
+
                                                               
                                                               
-      
-   Content Agent       Financial           Science Agent         
-                           Agent                                       
-   Blog posts           Market Data          arXiv Papers           
-   Social media         Stock Prices         Graph RAG              
-   General topics       Financial News       Scientific Content     
+              
+           -Content Agent       -Financial Agent    -Science Agent         
+                                                                          
+           Blog posts           Market Data          arXiv Papers           
+           Social media         Stock Prices         Graph RAG              
+           General topics       Financial News       Scientific Content     
       
                                                             
                                                             
       
-   LLM Service         Financial           Graph RAG Service     
-    (Singleton)            Service                                     
-   Groq API             yfinance API         VectorStore (Chroma)   
-   Ollama Local         NewsAPI              KnowledgeGraph (NX)    
-         arXiv Loader           
+   -LLM Service (Singleton)         -Financial Service         -Graph RAG Service     
+                                                     
+   Groq API                        finance API               VectorStore (Chroma)   
+   Ollama Local                    NewsAPI                   KnowledgeGraph (NX)    
+                                                             arXiv Loader           
                                                 
 ```
 
@@ -217,7 +213,7 @@ graph TB
 │                                                             │
 │  1. Recepción de Request                                    │
 │     ↓                                                       │
-│  2. ¿Existe en Cache? → SÍ → Retornar (Cache Hit)          │
+│  2. ¿Existe en Cache? → SÍ → Retornar (Cache Hit)           │
 │     ↓ NO                                                    │
 │  3. LLM Classification                                      │
 │     • Analiza el topic con LLM                              │
@@ -336,8 +332,8 @@ graph TB
 │     • Tono adecuado                                         │
 │     ↓                                                       │
 │  4. Decisión                                                │
-│     ├→ ✅ PASA → Retornar contenido                         │
-│     └→ ❌ FALLA → Reintentar generación                     │
+│     ├→ ✅ PASA → Retornar contenido                        │
+│     └→ ❌ FALLA → Reintentar generación                    │
 │                    (máximo 3 intentos)                      │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
