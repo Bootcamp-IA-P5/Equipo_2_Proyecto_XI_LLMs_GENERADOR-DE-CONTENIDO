@@ -1,0 +1,277 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Artificial Intelligence",
+        "definition": "Simulation of human intelligence in machines"
+      },
+      "id": "artificial_intelligence"
+    },
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Machine Learning",
+        "definition": "Campo de la IA que permite a las m\u00e1quinas aprender de datos"
+      },
+      "id": "machine_learning"
+    },
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Deep Learning",
+        "definition": "Subcampo de ML usando redes neuronales profundas"
+      },
+      "id": "deep_learning"
+    },
+    {
+      "type": "technology",
+      "properties": {
+        "name": "Neural Networks",
+        "definition": "Modelos computacionales inspirados en el cerebro"
+      },
+      "id": "neural_networks"
+    },
+    {
+      "type": "technology",
+      "properties": {
+        "name": "Transformers",
+        "definition": "Arquitectura basada en mecanismos de atenci\u00f3n"
+      },
+      "id": "transformers"
+    },
+    {
+      "type": "technology",
+      "properties": {
+        "name": "GPT",
+        "definition": "Generative Pre-trained Transformer"
+      },
+      "id": "gpt"
+    },
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Attention Mechanism",
+        "definition": "Mecanismo que permite enfocarse en partes relevantes"
+      },
+      "id": "attention_mechanism"
+    },
+    {
+      "type": "technology",
+      "properties": {
+        "name": "Large Language Models",
+        "definition": "Modelos de lenguaje con billones de par\u00e1metros"
+      },
+      "id": "llm"
+    },
+    {
+      "type": "technology",
+      "properties": {
+        "name": "BERT",
+        "definition": "Bidirectional Encoder Representations from Transformers"
+      },
+      "id": "bert"
+    },
+    {
+      "type": "method",
+      "properties": {
+        "name": "RAG",
+        "definition": "Retrieval-Augmented Generation - combines retrieval with generation"
+      },
+      "id": "rag"
+    },
+    {
+      "type": "method",
+      "properties": {
+        "name": "Fine-tuning",
+        "definition": "Adapting pre-trained models to specific tasks"
+      },
+      "id": "fine_tuning"
+    },
+    {
+      "type": "method",
+      "properties": {
+        "name": "Prompt Engineering",
+        "definition": "Designing effective prompts for LLMs"
+      },
+      "id": "prompt_engineering"
+    },
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Natural Language Processing",
+        "definition": "Processing and understanding human language"
+      },
+      "id": "nlp"
+    },
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Embeddings",
+        "definition": "Dense vector representations of text"
+      },
+      "id": "embeddings"
+    },
+    {
+      "type": "method",
+      "properties": {
+        "name": "Tokenization",
+        "definition": "Breaking text into tokens"
+      },
+      "id": "tokenization"
+    },
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Computer Vision",
+        "definition": "Enabling computers to interpret visual information"
+      },
+      "id": "computer_vision"
+    },
+    {
+      "type": "technology",
+      "properties": {
+        "name": "CNN",
+        "definition": "Convolutional Neural Networks for image processing"
+      },
+      "id": "cnn"
+    },
+    {
+      "type": "method",
+      "properties": {
+        "name": "Image Classification",
+        "definition": "Categorizing images into classes"
+      },
+      "id": "image_classification"
+    },
+    {
+      "type": "concept",
+      "properties": {
+        "name": "Reinforcement Learning",
+        "definition": "Learning through trial and error with rewards"
+      },
+      "id": "reinforcement_learning"
+    },
+    {
+      "type": "method",
+      "properties": {
+        "name": "RLHF",
+        "definition": "Reinforcement Learning from Human Feedback"
+      },
+      "id": "rlhf"
+    }
+  ],
+  "edges": [
+    {
+      "relation": "is_subfield_of",
+      "properties": {},
+      "source": "machine_learning",
+      "target": "artificial_intelligence"
+    },
+    {
+      "relation": "is_subfield_of",
+      "properties": {},
+      "source": "deep_learning",
+      "target": "machine_learning"
+    },
+    {
+      "relation": "enables",
+      "properties": {},
+      "source": "neural_networks",
+      "target": "deep_learning"
+    },
+    {
+      "relation": "is_type_of",
+      "properties": {},
+      "source": "transformers",
+      "target": "neural_networks"
+    },
+    {
+      "relation": "based_on",
+      "properties": {},
+      "source": "gpt",
+      "target": "transformers"
+    },
+    {
+      "relation": "core_component_of",
+      "properties": {},
+      "source": "attention_mechanism",
+      "target": "transformers"
+    },
+    {
+      "relation": "based_on",
+      "properties": {},
+      "source": "llm",
+      "target": "transformers"
+    },
+    {
+      "relation": "based_on",
+      "properties": {},
+      "source": "bert",
+      "target": "transformers"
+    },
+    {
+      "relation": "extends",
+      "properties": {},
+      "source": "rag",
+      "target": "llm"
+    },
+    {
+      "relation": "applies_to",
+      "properties": {},
+      "source": "fine_tuning",
+      "target": "llm"
+    },
+    {
+      "relation": "applies_to",
+      "properties": {},
+      "source": "prompt_engineering",
+      "target": "llm"
+    },
+    {
+      "relation": "is_subfield_of",
+      "properties": {},
+      "source": "nlp",
+      "target": "artificial_intelligence"
+    },
+    {
+      "relation": "enables",
+      "properties": {},
+      "source": "embeddings",
+      "target": "nlp"
+    },
+    {
+      "relation": "enables",
+      "properties": {},
+      "source": "tokenization",
+      "target": "nlp"
+    },
+    {
+      "relation": "is_subfield_of",
+      "properties": {},
+      "source": "computer_vision",
+      "target": "artificial_intelligence"
+    },
+    {
+      "relation": "is_type_of",
+      "properties": {},
+      "source": "cnn",
+      "target": "neural_networks"
+    },
+    {
+      "relation": "is_subfield_of",
+      "properties": {},
+      "source": "reinforcement_learning",
+      "target": "machine_learning"
+    },
+    {
+      "relation": "improves",
+      "properties": {},
+      "source": "rlhf",
+      "target": "llm"
+    }
+  ]
+}
