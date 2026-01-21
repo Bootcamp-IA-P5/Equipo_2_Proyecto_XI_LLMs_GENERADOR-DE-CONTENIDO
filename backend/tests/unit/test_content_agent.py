@@ -98,6 +98,10 @@ class TestContentAgent:
             additional_context=additional_context
         )
         
+        # Verificar que el resultado no es None
+        assert result is not None
+        assert "content" in result
+        
         # Verificar que se llamó al LLM
         mock_llm_service.generate.assert_called_once()
         
