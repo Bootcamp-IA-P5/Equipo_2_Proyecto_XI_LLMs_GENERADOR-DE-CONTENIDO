@@ -428,7 +428,6 @@ Respond with ONLY a JSON object (no markdown, no explanation):
             Dict with generated content and metadata
         """
         start_time = time.time()
-        cache_hit = False
         fallback_used = False
         
         try:
@@ -436,7 +435,6 @@ Respond with ONLY a JSON object (no markdown, no explanation):
             if self.enable_caching and use_cache and self.cache:
                 cached = self.cache.get(topic, platform, audience, language)
                 if cached:
-                    cache_hit = True
                     processing_time = (time.time() - start_time) * 1000
                     self.metrics.record_request(
                         AgentType(cached.get("agent_used", "content")),
