@@ -2,7 +2,7 @@
 Rutas para generación de contenido (actualizado con multi-agente mejorado)
 """
 from typing import List, Optional
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from app.models.schemas import (
     ContentRequest, 
