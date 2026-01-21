@@ -74,7 +74,9 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
 
 </div>
 
----##  Arquitectura del Sistema
+---
+
+##  Arquitectura del Sistema
 
 ```
                                  FRONTEND (React 19 + Vite)                  
