@@ -78,7 +78,7 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
 
 ##  Arquitectura del Sistema
 
-```
+
                                  FRONTEND (React 19 + Vite)                  
                           Tailwind CSS | react-markdown | Axios                   
 
@@ -90,8 +90,7 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
 
                          ORCHESTRATOR (Routing Inteligente)                
                   LLM Routing | Keyword Fallback | Caching | Metrics             
-
-                                                              
+                                            
                                                               
               
            -Content Agent       -Financial Agent    -Science Agent         
@@ -108,8 +107,7 @@ Este proyecto ofrece una **plataforma completa de generación de contenido** pot
    Groq API                        finance API               VectorStore (Chroma)   
    Ollama Local                    NewsAPI                   KnowledgeGraph (NX)    
                                                              arXiv Loader           
-                                                
-```
+
 
 ---
 
