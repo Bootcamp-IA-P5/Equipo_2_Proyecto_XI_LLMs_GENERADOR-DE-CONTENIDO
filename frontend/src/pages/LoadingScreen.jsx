@@ -10,7 +10,7 @@ const LoadingScreen = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/app"); // ⬅️ ahora redirige a /app
-    }, 6000);
+    }, 6500);
 
     return () => clearTimeout(timer);
   }, [navigate]);
