@@ -1,0 +1,26 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8002:8000"  # Using 8002 to avoid conflict with fetal-health on 8000
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+    networks:
+      - content_generator
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3001:80"  # Using 3001 for production
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - content_generator
+
+networks:
+  content_generator:
+    driver: bridge
