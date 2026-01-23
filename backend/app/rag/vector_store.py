@@ -5,7 +5,7 @@ Enhanced with: chunking, reranking, relevance filtering, and hybrid search
 import chromadb
 from chromadb.config import Settings as ChromaSettings
 from sentence_transformers import SentenceTransformer, CrossEncoder
-from typing import List, Optional, Tuple
+from typing import List
 import re
 from app.core.config import get_settings
 from app.rag.arxiv_loader import ArxivLoader, ArxivDocument

@@ -1,6 +1,7 @@
 import { useContentGenerator } from '../hooks/useContentGenerator';
 import ContentForm from '../components/ContentForm';
 import ContentResult from '../components/ContentResult';
+import GeneratingModal from '../components/GeneratingModal';
 import { FiLoader, FiZap } from 'react-icons/fi';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
     clearResult 
   } = useContentGenerator();
 
+  /* CARGA CONFIG INICIAL */
   if (configLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -22,7 +24,11 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-purple-50 via-pink-50 to-blue-50 relative">
+
+      {/* 🔥 MODAL DE CARGA (SOLO FRONT) */}
+      {loading && <GeneratingModal show={loading} />}
+
       <div className="max-w-[1400px] mx-auto px-4 py-6 flex flex-col gap-6">
 
         {/* HEADER */}
